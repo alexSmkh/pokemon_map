@@ -5,7 +5,7 @@ class Pokemon(models.Model):
     title_ru = models.CharField('название на русском', max_length=200)
     title_en = models.CharField('название на английском', max_length=200)
     title_jp = models.CharField('название на японском', max_length=200)
-    image = models.ImageField('картинка покемона', null=True)
+    image = models.ImageField('картинка покемона')
     description = models.TextField('описание')
     next_evolution = models.ForeignKey(
         'Pokemon',
@@ -29,10 +29,10 @@ class Pokemon(models.Model):
 
 
 class PokemonEntity(models.Model):
-    latitude = models.FloatField('широта', null=True, blank=True)
-    longitude = models.FloatField('долгота', null=True, blank=True)
-    appeared_at = models.DateTimeField('дата и время появления на карте', null=True, blank=True)
-    disappeared_at = models.DateTimeField('дата и время удаления с карты', null=True, blank=True)
+    latitude = models.FloatField('широта')
+    longitude = models.FloatField('долгота')
+    appeared_at = models.DateTimeField('дата и время появления на карте')
+    disappeared_at = models.DateTimeField('дата и время удаления с карты')
     level = models.IntegerField('уровень', null=True, blank=True)
     health = models.IntegerField('здоровье', null=True, blank=True)
     strength = models.IntegerField('сила', null=True, blank=True)
