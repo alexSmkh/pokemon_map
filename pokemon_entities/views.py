@@ -63,21 +63,21 @@ def show_pokemon(request, pokemon_id):
         'description': pokemon.description,
     }
 
-    next_evolution_pokemon = pokemon.next_evolution \
+    next_evolution_of_pokemon = pokemon.next_evolution \
         if pokemon.next_evolution is not None else pokemon
 
     pokemon_on_page['next_evolution'] = {
-            'pokemon_id': next_evolution_pokemon.id,
-            'img_url': request.build_absolute_uri(next_evolution_pokemon.image.url),
-            'title_ru': next_evolution_pokemon.title_ru
+            'pokemon_id': next_evolution_of_pokemon.id,
+            'img_url': request.build_absolute_uri(next_evolution_of_pokemon.image.url),
+            'title_ru': next_evolution_of_pokemon.title_ru
     }
 
-    previous_evolution_pokemon = pokemon.previous_evolution \
+    previous_evolution_of_pokemon = pokemon.previous_evolution \
         if pokemon.previous_evolution is not None else pokemon
     pokemon_on_page['previous_evolution'] = {
-            'pokemon_id': previous_evolution_pokemon.id,
-            'img_url': request.build_absolute_uri(previous_evolution_pokemon.image.url),
-            'title_ru': previous_evolution_pokemon.title_ru
+            'pokemon_id': previous_evolution_of_pokemon.id,
+            'img_url': request.build_absolute_uri(previous_evolution_of_pokemon.image.url),
+            'title_ru': previous_evolution_of_pokemon.title_ru
     }
 
     folium_map = folium.Map(location=MOSCOW_CENTER, zoom_start=12)
